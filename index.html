@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Fatima!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e91e63;
+            --secondary-color: #f8bbd0;
+            --accent-color: #ff4081;
+            --light-pink: #ffebee;
+            --dark-pink: #c2185b;
+            --background-gradient: linear-gradient(135deg, #ffe6f0, #ffd6eb);
+            --box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+            --transition-speed: 0.4s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--background-gradient);
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            gap: 30px;
+        }
+
+        /* Enhanced Login Container */
+        .login-section {
+            display: flex;
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .login-image {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80') center/cover;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .login-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(233, 30, 99, 0.3), rgba(233, 30, 99, 0.7));
+        }
+
+        .login-content {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lock-icon {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            color: #555;
+            position: relative;
+        }
+
+        .tab.active {
+            color: white;
+            background: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .tab:not(.active):hover {
+            color: var(--primary-color);
+        }
+
+        .password-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input[type="password"] {
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 2px solid #eee;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            transition: all var(--transition-speed);
+            padding-left: 50px;
+        }
+
+        input[type="password"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .enter-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .enter-btn:hover {
+            background: var(--dark-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .enter-btn:active {
+            transform: translateY(0);
+        }
+
+        #error-message {
+            color: #f44336;
+            font-size: 14px;
+            margin-top: 5px;
+            height: 20px;
+            text-align: center;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        /* Comments Section */
+        .comments-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .comments-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        #comments-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .comment {
+            background-color: #fff9fb;
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .comment:hover {
+            transform: translateX(5px);
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .comment-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .comment-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .loading {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+            padding: 20px;
+        }
+
+        .error {
+            color: #f44336;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .login-section {
+                flex-direction: column;
+            }
+            
+            .login-image {
+                min-height: 200px;
+            }
+            
+            .login-content {
+                padding: 30px;
+            }
+            
+            .comment {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .comment-actions {
+                align-self: flex-end;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- Enhanced Login Section -->
+    <div class="login-section">
+        <div class="login-image"></div>
+        <div class="login-content">
+            <div class="lock-icon">🎂🎉</div>
+            <h1>Happy Birthday Fatima!</h1>
+            <p class="subtitle">Enter your password to access the celebration</p>
+
+            <div class="tabs">
+                <button id="fatima-tab" class="tab active" onclick="switchTab('fatima')">Fatima</button>
+                <button id="friends-tab" class="tab" onclick="switchTab('friends')">Friends</button>
+            </div>
+
+            <div class="password-container">
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="password-input" placeholder="Enter Password">
+                </div>
+                <button class="enter-btn" onclick="checkPassword()">Unlock Celebration</button>
+                <p id="error-message"></p>
+            </div>
+
+            <p class="note" id="tab-note">This password is for Fatima only 💖</p>
+        </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="comments-container">
+        <h2>Messages from Friends</h2>
+        <div id="comments-list" class="loading">Loading messages...</div>
+        <div id="comment-error" class="error"></div>
+    </div>
+</div>
+
+<!-- Firebase SDK (Modular v9) -->
+<script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { 
+        getFirestore, collection, addDoc, serverTimestamp, 
+        onSnapshot, query, orderBy, doc, updateDoc, deleteDoc 
+    } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+    import { 
+        getAuth, signInAnonymously, onAuthStateChanged 
+    } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCagddnktUhDw3zDNnLH_9-HaXITB9uD-k",
+        authDomain: "birthday-59a13.firebaseapp.com",
+        projectId: "birthday-59a13",
+        storageBucket: "birthday-59a13.appspot.com",
+        messagingSenderId: "146393670844",
+        appId: "1:146393670844:web:c1efe6cab32cbfb1b7dcb9",
+        measurementId: "G-SE2WJLRZ4K"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    // Handle authentication state
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log("User is signed in:", user.uid);
+            loadComments();
+        } else {
+            console.log("No user signed in - attempting anonymous sign-in");
+            signInAnonymously(auth).catch((error) => {
+                showCommentError("Failed to load messages. Please refresh the page.");
+                console.error("Authentication error:", error);
+            });
+        }
+    });
+
+    // Function to load comments with real-time updates
+    function loadComments() {
+        const commentList = document.getElementById('comments-list');
+        const errorElement = document.getElementById('comment-error');
+        
+        commentList.innerHTML = '<p class="loading">Loading messages...</p>';
+        errorElement.textContent = '';
+
+        const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+        
+        const unsubscribe = onSnapshot(q, 
+            (querySnapshot) => {
+                if (querySnapshot.empty) {
+                    commentList.innerHTML = '<p class="loading">No messages yet. Be the first to wish!</p>';
+                    return;
+                }
+
+                commentList.innerHTML = '';
+                querySnapshot.forEach((doc) => {
+                    const commentData = doc.data();
+                    const commentElement = document.createElement('div');
+                    commentElement.classList.add('comment');
+                    commentElement.innerHTML = `
+                        <span>${commentData.text}</span>
+                        <div class="comment-actions">
+                            <button class="comment-btn" onclick="editComment('${doc.id}')">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="comment-btn" onclick="deleteComment('${doc.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    commentList.appendChild(commentElement);
+                });
+            },
+            (error) => {
+                console.error("Error loading comments:", error);
+                commentList.innerHTML = '';
+                showCommentError("Error loading messages. Please try again later.");
+            }
+        );
+    }
+
+    // Edit a comment
+    async function editComment(commentId) {
+        const newComment = prompt('Edit your message:');
+        if (newComment && newComment.trim() !== '') {
+            try {
+                await updateDoc(doc(db, "comments", commentId), {
+                    text: newComment.trim()
+                });
+            } catch (error) {
+                console.error("Error updating comment:", error);
+                showCommentError("Failed to update message. Please try again.");
+            }
+        }
+    }
+
+    // Delete a comment
+    async function deleteComment(commentId) {
+        if (confirm("Are you sure you want to delete this message?")) {
+            try {
+                await deleteDoc(doc(db, "comments", commentId));
+            } catch (error) {
+                console.error("Error deleting comment:", error);
+                showCommentError("Failed to delete message. Please try again.");
+            }
+        }
+    }
+
+    // Show comment error message
+    function showCommentError(message) {
+        const errorElement = document.getElementById('comment-error');
+        errorElement.textContent = message;
+        setTimeout(() => errorElement.textContent = '', 5000);
+    }
+
+    // Switch between tabs
+    let currentTab = 'fatima';
+
+    function switchTab(tab) {
+        currentTab = tab;
+        document.getElementById('fatima-tab').classList.remove('active');
+        document.getElementById('friends-tab').classList.remove('active');
+
+        if (tab === 'fatima') {
+            document.getElementById('fatima-tab').classList.add('active');
+            document.getElementById('tab-note').textContent = "This password is for Fatima only 💖";
+        } else {
+            document.getElementById('friends-tab').classList.add('active');
+            document.getElementById('tab-note').textContent = "This password is for Friends only 🎉";
+        }
+
+        document.getElementById('password-input').value = '';
+        document.getElementById('error-message').textContent = '';
+    }
+
+    // Check password
+    function checkPassword() {
+        const password = document.getElementById('password-input').value.trim();
+        const errorMessage = document.getElementById('error-message');
+
+        if (currentTab === 'fatima') {
+            if (password === "fatima123") {
+                window.location.href = "celebration.html";
+            } else {
+                errorMessage.textContent = "Incorrect password for Fatima.";
+            }
+        } else {
+            if (password === "friend123") {
+                window.location.href = "friends.html";
+            } else {
+                errorMessage.textContent = "Incorrect password for Friends.";
+            }
+        }
+    }
+
+    // Make functions available globally
+    window.editComment = editComment;
+    window.deleteComment = deleteComment;
+    window.switchTab = switchTab;
+    window.checkPassword = checkPassword;
+</script>
+</body>
+</html>
