@@ -24,9 +24,13 @@ Access the live version here:
 
 ## Project Structure 📂
 birthday-wishes/
+
 ├── index.html # Main landing page
+
 ├── friends.html # Friends comment page
+
 ├── celebration.html # Birthday person's view
+
 └── assets/ # Images and other assets
 
 
